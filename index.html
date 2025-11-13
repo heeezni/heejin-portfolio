@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인희진 - 포트폴리오</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #60a5fa;
+            --secondary-color: #3b82f6;
+            --text-primary: #f3f4f6;
+            --text-secondary: #d1d5db;
+            --text-dark: #111827;
+            --bg-dark: #0f172a;
+            --bg-light: #1e293b;
+            --bg-card: #2c3e50;
+            --bg-project-card: #3a4e6a;
+            --bg-light-card: #c0d5eae8;
+            --border-color: #374151;
+            --accent-color: #60a5fa;
+            --success-color: #34d399;
+            --danger-color: #f87171;
+            --success-dark: #15803d;
+            --danger-dark: #b91c1c;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg,
+                rgba(15, 23, 42, 0.95) 0%,
+                rgba(30, 41, 59, 0.95) 30%,
+                rgba(45, 55, 72, 0.95) 50%,
+                rgba(30, 41, 59, 0.95) 70%,
+                rgba(51, 65, 85, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(96, 165, 250, 0.15), 0 2px 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+        }
+
+        nav .logo .annotation {
+            color: #fbbf24;
+            font-weight: 400;
+        }
+
+        nav .logo .param-name {
+            color: #a78bfa;
+            font-weight: 400;
+        }
+
+        nav .logo .param-value {
+            color: #34d399;
+            font-weight: 400;
+        }
+
+        nav .logo .bracket {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sidebar Index */
+        .sidebar-index {
+            position: fixed;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-index a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .sidebar-index a::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 4px;
+            height: 30px;
+            border-radius: 3px;
+            background: var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-index a:hover::after {
+            width: 5px;
+            height: 45px;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+        }
+
+        .sidebar-index a.active::after {
+            width: 5px;
+            height: 45px;
+            background: var(--primary-color);
+            box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+        }
+
+        .sidebar-index a:hover {
+            color: var(--primary-color);
+        }
+
+        .sidebar-index a.active {
+            color: var(--primary-color);
+        }
+
+        .sidebar-index-text {
+            margin-right: 1rem;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .sidebar-index a:hover .sidebar-index-text,
+        .sidebar-index a.active .sidebar-index-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.3);
+            background: rgba(255, 255, 255, 0.423);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .contact-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-dark);
+        }
+
+        .about-story {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+        }
+        
+        .about-story-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-story-paragraph {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .strengths-box {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            margin-top: 1.5rem;
+        }
+
+        .strengths-title {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .strengths-list {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-left: 1.5rem;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .keyword {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .achievements-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 3rem 0 2rem;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--bg-dark);
+        }
+
+        .skill-group {
+            margin-bottom: 3rem;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--border-color);
+            flex-grow: 1;
+            flex-basis: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(96, 165, 250, 0.15);
+            border-color: var(--accent-color);
+        }
+
+        .skill-tag-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Education Section */
+        #education {
+            background: var(--bg-dark);
+        }
+
+        .education-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            background: var(--bg-project-card);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-period {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .education-details li {
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--bg-dark);
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .project-header {
+            background: var(--bg-project-card);
+            padding: 2rem 4rem 2rem 2rem;
+            cursor: pointer;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-header::after {
+            content: '▼';
+            position: absolute;
+            right: 2.5rem;
+            top: 2.7rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--primary-color);
+            transform-origin: center;
+        }
+
+        .project-card.collapsed .project-header::after {
+            transform: rotate(-90deg);
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .project-meta {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            background: var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .project-body {
+            padding: 2rem;
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+            opacity: 1;
+        }
+
+        .project-card.collapsed .project-body {
+            max-height: 0;
+            opacity: 0;
+            padding: 0 2rem;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-section h4 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(96, 165, 250, 0.1);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-tech-choice-box {
+            margin-top: 1.5rem;
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .project-tech-choice-title {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .project-tech-choice-list {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-left: 1.5rem;
+        }
+
+        .improvements {
+            list-style: none;
+            background: var(--bg-light-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .improvements li {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .retrospect-box-good {
+            background: var(--bg-light-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--success-dark);
+        }
+
+        .retrospect-box-bad {
+            background: var(--bg-light-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--danger-dark);
+        }
+
+        .retrospect-box-title-good {
+            color: var(--success-dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .retrospect-box-title-bad {
+            color: var(--danger-dark);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .retrospect-list {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-left: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-contact {
+            margin-top: 1rem;
+        }
+
+        .footer-copyright {
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .sidebar-index {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .keywords {
+                gap: 0.5rem;
+            }
+
+            .keyword {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo"><span class="annotation">@Developer</span><span class="bracket">(</span><span class="param-name">role</span><span class="bracket">=</span><span class="param-value">"Backend"</span><span class="bracket">)</span> HeeJin</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Certifications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sidebar Index -->
+    <div class="sidebar-index">
+        <a href="#hero" class="sidebar-link">
+            <span class="sidebar-index-text">Home</span>
+        </a>
+        <a href="#about" class="sidebar-link">
+            <span class="sidebar-index-text">About</span>
+        </a>
+        <a href="#skills" class="sidebar-link">
+            <span class="sidebar-index-text">Skills</span>
+        </a>
+        <a href="#projects" class="sidebar-link">
+            <span class="sidebar-index-text">Projects</span>
+        </a>
+        <a href="#education" class="sidebar-link">
+            <span class="sidebar-index-text">Certifications</span>
+        </a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="profile-image">
+                🐯
+            </div>
+            <h1 class="hero-title">인희진 (Hee-Jin In)</h1>
+            <p class="hero-subtitle">요구사항의 본질을 이해하고, 적합한 기술로 해결하는 백엔드 개발자</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="mailto:hjin3456@naver.com">📮 hjin3456@naver.com</a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://github.com/heeezni" target="_blank">💻 GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://velog.io/@hjin3456/posts" target="_blank">✏️ 기술블로그</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">문제의 본질을 파악하고, 최적의 기술로 구현합니다</p>
+
+            <div class="keywords">
+                <span class="keyword">사용자 중심 문제 해결</span>
+                <span class="keyword">업무 효율화 경험</span>
+                <span class="keyword">공감 기반 소통</span>
+                <span class="keyword">높은 완성도 추구</span>
+            </div>
+
+            <div class="about-story">
+                <h3 class="about-story-title">효율을 극대화하는 기술</h3>
+                <p class="about-story-paragraph">
+                    유치원 교사로 근무하며 반복적인 서류 업무의 비효율을 해결하고자 AI 자동화 프로그램을 직접 개발했습니다. 이 경험을 통해 <strong>사용자의 불편함을 기술로 해결하는 과정</strong>에 큰 보람을 느꼈고, 기술 전문성과 사용자 중심의 시각을 모두 갖춘 개발자로 성장하는 계기가 되었습니다.
+                </p>
+                <div class="strengths-box">
+                    <h4 class="strengths-title">강점</h4>
+                    <ul class="strengths-list">
+                        <li><strong>문제의 근본 원인을 끝까지 파고드는 끈기</strong></li>
+                        <li><strong>하나의 개념에서 열 가지를 스스로 확장하는 학습력</strong></li>
+                        <li><strong>팀에 빈틈이 생기면 자연스럽게 메워내는 꼼꼼함</strong></li>
+                    </ul>
+                    <p style="color: var(--text-primary); margin-top: 1rem; font-weight: 600;">
+                        → 이런 장점을 기반으로 <strong style="color: var(--primary-color);">안정적이면서도 확장성 있는 백엔드 시스템</strong>을 구축하고자 합니다.
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="achievements-title">✅ 주요 성과</h3>
+            <div class="achievements">
+                <div class="achievement-card">
+                    <div class="achievement-icon">⏱️</div>
+                    <div class="achievement-title">응답 시간 개선</div>
+                    <div class="achievement-value">84% ↓</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🤖</div>
+                    <div class="achievement-title">AI 예측 정확도</div>
+                    <div class="achievement-value">83% ↑</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🔍</div>
+                    <div class="achievement-title">DB 쿼리 최적화</div>
+                    <div class="achievement-value">99.7% ↓</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">📊</div>
+                    <div class="achievement-title">업무 자동화 효율</div>
+                    <div class="achievement-value">30분 → 1초</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">주요 기술 스택 및 활용 경험</p>
+
+            <div class="skill-group">
+                <h3 class="skill-group-title">⚙️ Backend</h3>
+                <div class="skill-tags">
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Java & Spring Boot</span>
+                    </div>
+
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">MySQL</span>
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Redis</span>
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Oracle</span>
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Python Flask</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3 class="skill-group-title">🎨 Frontend</h3>
+                <div class="skill-tags">
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">React</span>
+
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Vite</span>
+
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">TanStack Query</span>
+
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Tailwind CSS</span>
+
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Vanilla JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3 class="skill-group-title">🛠️ Tools & Others</h3>
+                <div class="skill-tags">
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Git/GitHub</span>
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Gradle/Maven</span>
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Thymeleaf</span>
+                    </div>
+                    <div class="skill-tag">
+                        <span class="skill-tag-name">Swagger</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">주요 프로젝트 및 성과</p>
+
+            <!-- Project 1: Jupiter -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">🪐 Jupiter - AI 기반 주류 가격비교 플랫폼</h3>
+                    <p class="project-meta">2025.08 ~ 2025.10 (2.5개월) | 팀 프로젝트 | 백엔드</p>
+                    <p class="project-description">
+                        MSA 아키텍처 기반 AI 가격 예측과 실시간 최저가 비교를 제공하는 주류 쇼핑 플랫폼.
+                        여러 쇼핑몰의 가격 정보를 자동 수집하고, GPT를 활용해 미래 가격을 예측하여 최적의 구매 시점을 제안합니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/jongseo0703/jupiter" target="_blank" class="project-link">🔗 GitHub</a>
+                        <a href="#" class="project-link">🎥 시연 영상</a>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-section">
+                        <h4>담당 역할</h4>
+                        <ul>
+                            <li><strong>GPT Service (백엔드):</strong> AI 가격 예측 시스템 전체 설계 및 구현</li>
+                            <li><strong>Product Service (백엔드):</strong> 사용자 행동 기반 개인화 추천 알고리즘 설계 및 구현</li>
+                            <li><strong>Community Service (백엔드):</strong> 커뮤니티 게시판 CRUD 기능 구현</li>
+                            <li><strong>Frontend (전체):</strong> React 기반 전체 UI/UX 개발</li>
+                            <li><strong>개발 비중:</strong> Backend 60% | Frontend 40%</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>주요 성과 및 개선사항</h4>
+                        <ul class="improvements">
+                            <li><strong>1️⃣ AI 파라미터 실험으로 가격 예측 정확도 개선</strong><br>
+                                Temperature, Top-P 파라미터 실험 및 System Prompt 최적화를 통해 GPT API 응답 품질 향상<br>
+                                📊 예측 일관성 83% 향상 (변동폭 ±15% → ±2.5%), API 토큰 사용량 12% 감소</li>
+                            <li><strong>2️⃣ 사용자 행동 데이터 기반 개인화 추천 알고리즘 설계</strong><br>
+                                UserActivity 테이블 설계 및 점수 계산 로직 구현, 배치 처리로 성능 최적화<br>
+                                📊 추천 클릭률 23% 증가, 체류 시간 1.8분 증가, 찜하기 전환율 18% 증가</li>
+                            <li><strong>3️⃣ N+1 쿼리 문제 해결로 상품 목록 조회 성능 개선</strong><br>
+                                Fetch Join 적용으로 쿼리 수 대폭 감소 및 응답 속도 향상<br>
+                                📊 응답 시간 84% 감소 (3.2초 → 0.5초), 쿼리 수 99.7% 감소 (301개 → 1개)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>기술 스택 및 선택 이유</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Java 21</span>
+                            <span class="tech-tag">Spring Boot 3.5.5</span>
+                            <span class="tech-tag">Spring Cloud 2025.0.0</span>
+                            <span class="tech-tag">MySQL 8.x</span>
+                            <span class="tech-tag">OpenAI GPT API</span>
+                            <span class="tech-tag">React 19.1.1</span>
+                            <span class="tech-tag">Vite 7.1.5</span>
+                            <span class="tech-tag">TanStack Query</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+
+                        <div class="project-tech-choice-box">
+                            <h5 class="project-tech-choice-title">주요 기술 선택 배경</h5>
+                            <ul class="project-tech-choice-list">
+                                <li><strong>Spring Cloud (MSA):</strong> 서비스별로 독립적 개발/배포가 필요하고, 향후 확장 가능성을 고려하여 MSA 아키텍처 선택. Eureka를 통한 서비스 디스커버리로 유연한 구조 구현</li>
+                                <li><strong>MySQL + JPA:</strong> 관계형 데이터 모델링이 중요한 프로젝트(상품-가격-리뷰 관계). JPA를 통한 엔티티 중심 개발로 생산성 향상하면서도 복잡한 쿼리는 JPQL과 Fetch Join으로 최적화</li>
+                                <li><strong>TanStack Query:</strong> 서버 상태 관리와 API 호출 캐싱을 위해 도입. React 19와의 호환성과 강력한 캐싱 기능으로 불필요한 API 호출 감소</li>
+                                <li><strong>Chart.js:</strong> AI 가격 예측 결과를 시각적으로 보여주기 위해 선택. 라인 차트로 과거 가격 추이와 미래 예측을 직관적으로 표현</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>회고</h4>
+
+                        <div class="retrospect-box-good">
+                            <h5 class="retrospect-box-title-good">✅ 느낀 점</h5>
+                            <ul class="retrospect-list">
+                                <li><strong>실험과 검증의 중요성:</strong> AI 파라미터를 단순히 기본값으로 쓰지 않고 직접 실험하며 최적값을 찾았던 경험이 가장 보람찼습니다.</li>
+                                <li><strong>데이터 기반 의사결정:</strong> 추천 알고리즘 설계 시 실제 사용자 행동 데이터를 분석하여 설득력 있는 기능을 만들 수 있었습니다.</li>
+                                <li><strong>End-to-End 개발의 가치:</strong> 백엔드와 프론트엔드를 모두 담당하며 전체 서비스 흐름을 이해하게 되었고, API 설계 시 프론트엔드 사용성을 고려하게 되었습니다.</li>
+                                <li><strong>성능 최적화의 중요성:</strong> N+1 문제 해결을 통해 응답 속도를 84% 개선하며, 사소해 보이는 쿼리 하나가 전체 시스템 성능에 큰 영향을 미친다는 것을 배웠습니다.</li>
+                            </ul>
+                        </div>
+
+                        <div class="retrospect-box-bad">
+                            <h5 class="retrospect-box-title-bad">아쉬웠던 점 & 개선 계획</h5>
+                            <ul class="retrospect-list">
+                                <li><strong>GPT API 비용 관리 부족:</strong> 예상 $50 → 실제 $120 초과. 다음엔 사용량 대시보드를 구축하여 실시간 모니터링 필요</li>
+                                <li><strong>MSA 서비스 통합 이슈:</strong> 데이터 타입 불일치 에러 5회 발생. API 명세서를 사전에 작성하고 타입 스키마 공유 필요</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2: Closet Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">👗 오늘 뭐 입지? - 옷장 관리 앱</h3>
+                    <p class="project-meta">2025.05 ~ 2025.06 (1개월) | 개인 프로젝트 | 프론트엔드</p>
+                    <p class="project-description">
+                        날씨를 고려한 옷 코디 추천 및 옷장 관리 웹 애플리케이션.
+                        IndexedDB를 활용한 클라이언트 측 데이터 저장과 날씨 API 연동으로 실시간 코디 제안 기능을 제공합니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/heeezni/Closet_Project" target="_blank" class="project-link">🔗 GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-section">
+                        <h4>담당 역할</h4>
+                        <ul>
+                            <li><strong>프론트엔드 전체 구현:</strong> Vanilla JavaScript로 SPA 구조 설계</li>
+                            <li><strong>IndexedDB 활용:</strong> 클라이언트 측 데이터베이스 설계 및 CRUD 구현</li>
+                            <li><strong>날씨 API 연동:</strong> 실시간 날씨 정보 기반 코디 추천</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>주요 기능</h4>
+                        <ul class="improvements">
+                            <li>옷 등록 (카테고리, 색상, 계절별 분류)</li>
+                            <li>필터링 기능 (카테고리, 계절, 색상별)</li>
+                            <li>코디 조합 및 저장</li>
+                            <li>날씨 기반 코디 추천</li>
+                            <li>IndexedDB를 활용한 오프라인 데이터 저장</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>기술 스택 및 선택 이유</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Vanilla JavaScript</span>
+                            <span class="tech-tag">IndexedDB</span>
+                            <span class="tech-tag">Weather API</span>
+                        </div>
+
+                        <div class="project-tech-choice-box">
+                            <h5 class="project-tech-choice-title">주요 기술 선택 배경</h5>
+                            <ul class="project-tech-choice-list">
+                                <li><strong>IndexedDB:</strong> 개인 옷장 데이터의 프라이버시 보호와 오프라인 사용을 위해 선택. LocalStorage(5MB 제한)보다 대용량 데이터 저장 가능하고, 구조화된 데이터 관리에 적합</li>
+                                <li><strong>Vanilla JavaScript:</strong> 프레임워크 없이 JavaScript 기본 개념(DOM 조작, 이벤트 핸들링, 비동기 처리)을 깊이 이해하기 위해 의도적으로 선택. 이후 React 학습의 기초가 됨</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>회고</h4>
+
+                        <div class="retrospect-box-good">
+                            <h5 class="retrospect-box-title-good">✅ 느낀 점</h5>
+                            <ul class="retrospect-list">
+                                <li><strong>IndexedDB 경험:</strong> 브라우저 내장 데이터베이스를 활용하여 백엔드 없이 데이터 관리 경험을 쌓았습니다. 트랜잭션 개념을 프론트엔드에서 먼저 경험했습니다.</li>
+                                <li><strong>Vanilla JS 숙련:</strong> 프레임워크 없이 SPA를 구현하며 JavaScript 기본기를 탄탄히 다졌습니다. 이 경험이 React를 더 빠르게 학습하는 데 큰 도움이 되었습니다.</li>
+                            </ul>
+                        </div>
+
+                        <div class="retrospect-box-bad">
+                            <h5 class="retrospect-box-title-bad">개선 계획</h5>
+                            <ul class="retrospect-list">
+                                <li><strong>React 리팩토링:</strong> 컴포넌트 기반 아키텍처로 전환하여 코드 재사용성과 유지보수성 향상</li>
+                                <li><strong>백엔드 서버 추가:</strong> 다중 기기 동기화 기능을 위한 Spring Boot API 서버 구축 예정</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Attendance Helper -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">📚 출석 관리 시스템 (Attendance Helper)</h3>
+                    <p class="project-meta">2024.06 ~ 2024.07 (1개월) | 개인 프로젝트 | 백엔드</p>
+                    <p class="project-description">
+                        유치원 교사 경험을 바탕으로 만든 웹 기반 출석 관리 시스템.
+                        학생 정보 관리, 출석 체크, Excel 출석부 자동 생성 기능을 제공합니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/heeezni/Attendance_Helper" target="_blank" class="project-link">🔗 GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-section">
+                        <h4>담당 역할</h4>
+                        <ul>
+                            <li><strong>Flask 웹 애플리케이션 개발:</strong> REST API 설계 및 구현</li>
+                            <li><strong>데이터 관리:</strong> JSON 기반 학생 및 출석 데이터 저장</li>
+                            <li><strong>Excel 출력 기능:</strong> openpyxl을 활용한 출석부 자동 생성</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>주요 기능</h4>
+                        <ul class="improvements">
+                            <li>학생 정보 등록 및 관리 (이름, 성별, 주소, 전화번호)</li>
+                            <li>월별 출석 체크 및 조회</li>
+                            <li>공휴일 설정 및 메모 기능</li>
+                            <li>Excel 출석부 자동 생성 및 다운로드</li>
+                            <li>출석 통계 조회 (출석/결석/지각 현황)</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>기술 스택 및 선택 이유</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">openpyxl</span>
+                            <span class="tech-tag">JSON</span>
+                            <span class="tech-tag">HTML/CSS/JavaScript</span>
+                        </div>
+
+                        <div class="project-tech-choice-box">
+                            <h5 class="project-tech-choice-title">주요 기술 선택 배경</h5>
+                            <ul class="project-tech-choice-list">
+                                <li><strong>Flask (Python):</strong> 빠른 프로토타이핑과 Excel 파일 처리를 위해 선택. Python의 openpyxl 라이브러리와 자연스럽게 통합되고, 가볍고 유연한 Flask로 최소한의 학습으로 웹 애플리케이션 구현</li>
+                                <li><strong>openpyxl:</strong> Excel 출석부 자동 생성을 위해 필수적. 유치원 현장에서 Excel 파일 형식을 그대로 사용하므로, PDF나 다른 형식보다 실용성이 높음. 셀 서식(색상, 테두리, 정렬) 세밀한 제어 가능</li>
+                                <li><strong>JSON 파일 저장:</strong> 별도 데이터베이스 없이 빠르게 개발하고 배포하기 위해 선택. 소규모 데이터(학생 20~30명)에는 충분하고, 파일 기반으로 백업과 이동이 간편</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>회고</h4>
+
+                        <div class="retrospect-box-good">
+                            <h5 class="retrospect-box-title-good">✅ 느낀 점</h5>
+                            <ul class="retrospect-list">
+                                <li><strong>실무 경험 활용:</strong> 유치원 교사 경험을 바탕으로 실제 사용자 니즈를 반영한 기능을 구현했습니다. "어떤 기능을 만들까?"가 아니라 "어떤 불편함을 해결할까?"를 먼저 고민했습니다.</li>
+                                <li><strong>Python 웹 개발:</strong> Flask를 통해 Python 기반 웹 애플리케이션 개발 경험을 쌓았습니다. 이후 Java Spring Boot로 전환하며 웹 프레임워크의 공통 패턴을 이해하는 데 도움이 되었습니다.</li>
+                                <li><strong>문서 자동화의 가치:</strong> openpyxl을 활용한 Excel 문서 자동 생성으로 업무 효율화를 경험했습니다. 수작업 30분 → 자동화 1초로 단축.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: RÊVE -->
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">🌸 RÊVE - 향수 쇼핑몰</h3>
+                    <p class="project-meta">2025.07 ~ 2025.08 (2개월) | 팀 프로젝트 | 백엔드</p>
+                    <p class="project-description">
+                        사용자들이 다양한 향수를 탐색하고 구매할 수 있는 온라인 쇼핑몰.
+                        제품 관리, 장바구니, 주문/결제, 회원 시스템, 관리자 페이지를 포함한 완전한 이커머스 시스템입니다.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/heeezni/reve" target="_blank" class="project-link">🔗 GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-body">
+                    <div class="project-section">
+                        <h4>담당 역할</h4>
+                        <ul>
+                            <li><strong>게시판 시스템 (공지사항):</strong> CRUD 기능, 조회수, 페이징 처리</li>
+                            <li><strong>Q&A 게시판:</strong> 질문-답변 시스템, 댓글 기능, 회원별 문의 내역 조회</li>
+                            <li><strong>관리자 페이지:</strong> 제품, 주문, 회원, 게시판 관리 기능 구현</li>
+                            <li><strong>데이터베이스 설계:</strong> 게시판 및 Q&A 테이블 설계, JPA 엔티티 매핑</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>구현 기능 상세</h4>
+                        <ul class="improvements">
+                            <li><strong>1️⃣ 게시판 시스템 (공지사항)</strong><br>
+                                게시글 작성/수정/삭제, 조회수 카운트, 페이징 처리, 검색 기능 (제목/내용/작성자)</li>
+                            <li><strong>2️⃣ Q&A 게시판</strong><br>
+                                회원별 문의 작성, 관리자 답변 시스템, 댓글 기능, 문의 상태 관리 (대기/답변완료)</li>
+                            <li><strong>3️⃣ 관리자 페이지</strong><br>
+                                제품 등록/수정/삭제, 주문 관리, 회원 관리, 게시판 관리 대시보드, 통계 조회</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>기술 스택 및 선택 이유</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Gradle</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Thymeleaf</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">jQuery</span>
+                        </div>
+
+                        <div class="project-tech-choice-box">
+                            <h5 class="project-tech-choice-title">주요 기술 선택 배경</h5>
+                            <ul class="project-tech-choice-list">
+                                <li><strong>Thymeleaf:</strong> SSR(서버 사이드 렌더링) 방식으로 빠른 개발과 SEO 최적화를 고려. Spring Boot와의 자연스러운 통합으로 학습 곡선 감소</li>
+                                <li><strong>Spring Data JPA:</strong> 복잡한 SQL 작성 없이 엔티티 중심 개발로 생산성 향상. 이커머스 도메인 모델을 객체지향적으로 설계</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="project-section">
+                        <h4>회고</h4>
+
+                        <div class="retrospect-box-good">
+                            <h5 class="retrospect-box-title-good">✅ 느낀 점</h5>
+                            <ul class="retrospect-list">
+                                <li><strong>이커머스 도메인 이해:</strong> 제품-주문-결제로 이어지는 이커머스 비즈니스 로직을 구현하며 도메인 주도 설계(DDD)의 중요성을 깨달았습니다.</li>
+                                <li><strong>Thymeleaf 경험:</strong> 서버 사이드 템플릿 엔진 사용 경험을 통해 React와의 차이점을 체감했습니다. SSR의 장점(SEO, 초기 로딩)과 단점(인터랙티브 제한)을 모두 경험했습니다.</li>
+                                <li><strong>팀 협업:</strong> 백엔드 API와 프론트엔드 템플릿을 분담하며 명확한 역할 분리와 커뮤니케이션의 중요성을 배웠습니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">🏆 Certifications & Education</h2>
+            <p class="section-subtitle">자격증 및 교육 이력</p>
+
+            <div class="education-content">
+                <div class="education-item">
+                    <div class="education-title" style="color: var(--primary-color); font-size: 1.5rem; font-weight: 800;">정보처리기사</div>
+                    <div class="education-period">2025.12 | 한국산업인력공단</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-title" style="color: var(--primary-color); font-size: 1.5rem; font-weight: 800;">[신세계 아이앤씨] - Java 기반 백엔드 개발자 양성 과정</div>
+                    <div class="education-period">2025.04 ~ 2025.10 (6개월, 총 960시간)</div>
+                    <ul class="education-details">
+                        <li><strong>백엔드 개발 기본:</strong> Java 객체지향 프로그래밍, 협업 환경 구축</li>
+                        <li><strong>데이터베이스 및 서버:</strong> JDBC 기반 CRUD, 관계형 DB 모델링, 클라우드 서버 환경 구축</li>
+                        <li><strong>Spring 프레임워크:</strong> Spring Boot 기반 웹 애플리케이션 개발, RESTful API 설계, JPA/ORM 활용</li>
+                        <li><strong>실무 프로젝트:</strong> 창고 관리 시스템, 쇼핑몰 어드민 개발, 최종 중/대규모 프로젝트 수행</li>
+                        <li><strong>핵심 역량:</strong> 요구사항 분석 및 설계, 백엔드 API 서버 구축, 팀 협업 및 프로젝트 발표</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>"요구사항의 본질을 이해하고, 적합한 기술로 해결합니다."</strong></p>
+            <p>완성도 있고 확장 가능한 백엔드 시스템을 구축하는 개발자가 되겠습니다.</p>
+            <p class="footer-contact">📮 hjin3456@naver.com</p>
+            <p class="footer-copyright">&copy; 2025 Hee-Jin In. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"], .sidebar-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections except hero
+        document.querySelectorAll('section:not(#hero)').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Hero section is always visible
+        document.getElementById('hero').classList.add('visible');
+
+        // Project card toggle functionality
+        document.querySelectorAll('.project-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const projectCard = this.closest('.project-card');
+                projectCard.classList.toggle('collapsed');
+            });
+        });
+
+        // Initially collapse all projects except the first one
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            if (index > 0) {
+                card.classList.add('collapsed');
+            }
+        });
+
+        // Sidebar index active state
+        function updateSidebarIndex() {
+            const sections = document.querySelectorAll('section');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Update on scroll
+        window.addEventListener('scroll', updateSidebarIndex);
+        // Initial update
+        updateSidebarIndex();
+    </script>
+</body>
+</html>
