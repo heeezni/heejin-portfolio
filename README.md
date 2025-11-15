@@ -2,6 +2,10 @@
 
 백엔드 개발자 인희진의 포트폴리오 웹사이트입니다.
 
+## 🔗 포트폴리오 보러가기
+
+**👉 [https://heeezni.github.io/heejin-portfolio/](https://heeezni.github.io/heejin-portfolio/)**
+
 ## 🚀 배포
 
 이 포트폴리오는 GitHub Actions를 통해 자동으로 배포됩니다.
