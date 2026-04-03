@@ -672,54 +672,6 @@
             color: var(--text-dark);
         }
 
-        /* Footer */
-        footer {
-            background: linear-gradient(to bottom, var(--bg-dark), #0a0f1e);
-            color: var(--text-secondary);
-            text-align: center;
-            padding: 5rem 0 4rem;
-            border-top: 1px solid rgba(96, 165, 250, 0.1);
-        }
-
-        .footer-slogan {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            word-break: keep-all;
-        }
-
-        .footer-sub-slogan {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            margin-bottom: 3rem;
-        }
-
-        .footer-contact-badge {
-            display: inline-block;
-            background: rgba(96, 165, 250, 0.1);
-            color: var(--primary-color);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
-            border: 1px solid rgba(96, 165, 250, 0.3);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-contact-badge:hover {
-            background: rgba(96, 165, 250, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .footer-copyright {
-            font-size: 0.9rem;
-            opacity: 0.4;
-            letter-spacing: 0.05em;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             /* Navigation */
@@ -931,16 +883,12 @@
 
             .project-links {
                 gap: 0.75rem;
-                margin-top: 1.5rem; /* 간격 확대 */
-                justify-content: center; /* 모바일에서 중앙 정렬 */
+                margin-top: 1rem;
             }
 
             .project-link {
-                padding: 0.6rem 1rem; /* 클릭 영역 확대 */
-                font-size: 0.9rem;
-                flex: 1; /* 모바일에서 버튼 너비 균등화 */
-                max-width: 150px;
-                text-align: center;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
             }
 
             .project-body {
@@ -1176,6 +1124,54 @@
             margin-bottom: 0.5rem; /* 항목 간 간격 추가 */
         }
 
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(to bottom, var(--bg-dark), #0a0f1e);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 5rem 0 4rem;
+            border-top: 1px solid rgba(96, 165, 250, 0.1);
+        }
+
+        .footer-slogan {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            word-break: keep-all;
+        }
+
+        .footer-sub-slogan {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .footer-contact-badge {
+            display: inline-block;
+            background: rgba(96, 165, 250, 0.1);
+            color: var(--primary-color);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact-badge:hover {
+            background: rgba(96, 165, 250, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            opacity: 0.4;
+            letter-spacing: 0.05em;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -1266,7 +1262,7 @@
             <div class="about-story">
                 <h3 class="about-story-title">운영의 안정성이 곧 서비스의 신뢰도입니다</h3>
                 <p class="about-story-paragraph">
-                    유치원 교사 시절, 복잡한 행정 시스템의 작은 오류가 교육 현장의 혼란으로 이어지는 것을 보며 <strong>시스템 안정성(Reliability)</strong>의 중요성을 뼈저리게 느꼈습니다. 
+                    유치원 교사 시절, 복잡한 행정 시스템의 작은 오류가 교육 현장의 혼란으로 이어지는 것을 보며 <strong>시스템 안정성</strong>의 중요성을 뼈저리게 느꼈습니다. 
                     단순히 기능을 만드는 개발자를 넘어, 시스템이 24/7 안정적으로 동작하도록 관리하고 최적화하는 <strong>IT 운영 전문가</strong>를 목표로 합니다.
                 </p>
                 <p class="about-story-paragraph">
@@ -1277,9 +1273,9 @@
                 <div class="strengths-box">
                     <h4 class="strengths-title">핵심 역량</h4>
                     <ul class="strengths-list">
-                        <li><strong>운영 관점의 설계:</strong> 에러 로그 분석과 모니터링을 통한 사전 예방 및 빠른 장애 복구 역량</li>
+                        <li><strong>보안 및 품질 관리:</strong> 라이브러리 보안 취약점(CVE) 대응 및 Spotless를 통한 코드 스타일 자동 표준화 역량</li>
                         <li><strong>비즈니스 언어 이해:</strong> 기술적 구현 방안을 비즈니스 가치(비용 절감, 효율 증대)로 환산하여 소통하는 능력</li>
-                        <li><strong>지속적인 최적화:</strong> DB 인덱스 튜닝, 쿼리 최적화 등 시스템 성능을 지속적으로 개선하려는 의지</li>
+                        <li><strong>데이터 무결성 설계:</strong> 정교한 유효성 검증 로직을 통해 데이터 정합성을 보장하고 시스템 신뢰도를 높이는 의지</li>
                     </ul>
                     <p style="color: var(--text-primary); margin-top: 1rem; font-weight: 600;">
                         → <strong style="color: var(--primary-color);">"기술로 비즈니스를 보호하고 확장하는"</strong> 든든한 파트너가 되겠습니다.
@@ -1297,9 +1293,9 @@
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-icon">⚖️</div>
-                    <div class="achievement-title">AI 응답 일관성</div>
-                    <div class="achievement-value">편차 80% 감소</div>
-                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">50회 샘플 테스트, 파라미터 튜닝 후</p>
+                    <div class="achievement-title">데이터 정합성 확보</div>
+                    <div class="achievement-value">오류 데이터 0건</div>
+                    <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">외부 API 연동 시 유효성 검증 로직 구축</p>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-icon">📉</div>
@@ -1327,17 +1323,14 @@
                 <h3 class="skill-group-title">⚙️ Backend</h3>
                 <div class="skill-tags">
                     <div class="skill-tag">
-                        <span class="skill-tag-name">Java & Spring Boot</span>
+                        <span class="skill-tag-name">Java 21 & Spring Boot 3.5</span>
                     </div>
 
                     <div class="skill-tag">
-                        <span class="skill-tag-name">MySQL</span>
+                        <span class="skill-tag-name">MySQL / Oracle</span>
                     </div>
                     <div class="skill-tag">
-                        <span class="skill-tag-name">Redis</span>
-                    </div>
-                    <div class="skill-tag">
-                        <span class="skill-tag-name">Oracle</span>
+                        <span class="skill-tag-name">Spring Data JPA</span>
                     </div>
                     <div class="skill-tag">
                         <span class="skill-tag-name">Python Flask</span>
@@ -1375,11 +1368,11 @@
                 <div class="skill-tags">
                     <div class="skill-tag">
                         <span class="skill-tag-name">Git / GitHub</span>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">버전 관리 및 협업 (Git-flow 활용)</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">버전 관리 및 협업</p>
                     </div>
                     <div class="skill-tag">
-                        <span class="skill-tag-name">Gradle / Maven</span>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">빌드 자동화 및 의존성 관리</p>
+                        <span class="skill-tag-name">Gradle / Spotless</span>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">빌드 자동화 및 코드 포맷팅 관리</p>
                     </div>
                     <div class="skill-tag">
                         <span class="skill-tag-name">Thymeleaf</span>
@@ -1387,11 +1380,7 @@
                     </div>
                     <div class="skill-tag">
                         <span class="skill-tag-name">Swagger (OpenAPI)</span>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">REST API 문서 자동화 및 테스트</p>
-                    </div>
-                    <div class="skill-tag">
-                        <span class="skill-tag-name">Prompt Engineering (AI)</span>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">GPT 활용 로직 초안 작성 및 코드 최적화 보조</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">REST API 문서 자동화</p>
                     </div>
                 </div>
             </div>
@@ -1402,23 +1391,24 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">"기술적 고민이 비즈니스 가치로 이어진 경험들"</p>
+            <p class="section-subtitle">"실제 코드 기반의 기술적 문제 해결 경험"</p>
 
             <!-- Project 1: Jupiter -->
             <div class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">
                         <i class="fas fa-wine-glass" style="color: #60a5fa; margin-right: 10px;"></i>
-                        Jupiter - AI 기반 주류 가격비교 및 데이터 운영 플랫폼
+                        Jupiter - 8개 서비스 기반 MSA 데이터 운영 플랫폼
                     </h3>
                     <p class="project-meta">2025.08 ~ 2025.10 (2.5개월) | 팀 프로젝트 | 백엔드</p>
                     <p class="project-description">
-                        MSA 아키텍처 기반 AI 가격 예측과 실시간 최저가 비교를 제공하는 플랫폼.
-                        <strong>대규모 데이터의 정합성</strong>과 <strong>시스템 운영 효율성</strong>을 최우선으로 고려하여 설계되었습니다.
+                        Spring Cloud 기반 **8개의 독립 마이크로서비스**로 구성된 가격 예측 플랫폼.
+                        **코드 품질 자동화(Spotless)**와 **보안 취약점 관리**를 통해 운영 안정성을 극대화했습니다.
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/heeezni/jupiter" target="_blank" class="project-link">🔗 GitHub</a>
                         <a href="videos/jupiter-demo.mp4" target="_blank" class="project-link">🎥 시연 영상</a>
+                        <a href="https://velog.io/@hjin3456/jupiter-retrospect" target="_blank" class="project-link">📝 기술 회고</a>
                     </div>
                 </div>
 
@@ -1426,16 +1416,54 @@
                     <div class="project-section">
                         <h4><i class="fas fa-user-tag" style="margin-right: 8px;"></i> 담당 역할 및 기여도</h4>
                         <ul>
-                            <li><strong>Backend (60%):</strong> GPT 기반 가격 예측 시스템 설계, 개인화 추천 로직 구현, API 서버(MSA) 구축</li>
-                            <li><strong>Frontend (40%):</strong> React 기반 실시간 가격 변동 차트 및 전체 UI 인터랙션 개발</li>
+                            <li><strong>Backend (MSA):</strong> GPT 서비스, 상품 서비스 등 핵심 마이크로서비스 설계 및 구현</li>
+                            <li><strong>Security & DevOps:</strong> 라이브러리 보안 취약점(CVE-2025-48924) 해결 및 Spotless 포맷팅 자동화 도입</li>
+                            <li><strong>Frontend:</strong> React 기반 실시간 데이터 시각화 인터랙션 개발</li>
                         </ul>
                     </div>
 
                     <div class="project-section">
                         <h4><i class="fas fa-tools" style="margin-right: 8px;"></i> Problem - Cause - Solution (Trouble-shooting)</h4>
                         <div class="troubleshoot-container">
+                            <!-- Case 1 -->
                             <div class="troubleshoot-item">
-                                <div class="troubleshoot-title">🔴 조회 성능 저하 및 DB 병목 현상</div>
+                                <div class="troubleshoot-title">🔴 라이브러리 보안 취약점 대응 (CVE-2025-48924)</div>
+                                <div class="troubleshoot-content">
+                                    <div class="troubleshoot-row">
+                                        <span class="troubleshoot-label label-problem">Problem</span>
+                                        <span>사용 중인 commons-lang3 라이브러리에서 원격 코드 실행 위험 발견</span>
+                                    </div>
+                                    <div class="troubleshoot-row">
+                                        <span class="troubleshoot-label label-cause">Cause</span>
+                                        <span>구버전 라이브러리의 보안 허점으로 인한 비즈니스 리스크 발생</span>
+                                    </div>
+                                    <div class="troubleshoot-row">
+                                        <span class="troubleshoot-label label-solution">Solution</span>
+                                        <span><strong>의존성 버전 정밀 제어(3.18.0)</strong>를 통해 취약점 즉시 해결 및 보안 안정성 확보</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Case 2 -->
+                            <div class="troubleshoot-item" style="border-left-color: #fbbf24;">
+                                <div class="troubleshoot-title">🔴 분산 환경에서의 인증 보안 취약점</div>
+                                <div class="troubleshoot-content">
+                                    <div class="troubleshoot-row">
+                                        <span class="troubleshoot-label label-problem">Problem</span>
+                                        <span>Stateless한 JWT 인증 방식 사용 시 로그아웃 토큰의 무효화 처리 지연</span>
+                                    </div>
+                                    <div class="troubleshoot-row">
+                                        <span class="troubleshoot-label label-cause">Cause</span>
+                                        <span>서버 간 블랙리스트 정보 공유 체계 부재로 탈취된 토큰의 재사용 가능성 상존</span>
+                                    </div>
+                                    <div class="troubleshoot-row">
+                                        <span class="troubleshoot-label label-solution">Solution</span>
+                                        <span><strong>Redis 기반 Blacklist</strong> 구축으로 로그아웃 토큰 즉시 무효화 및 보안 리스크 원천 차단</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Case 3 -->
+                            <div class="troubleshoot-item" style="border-left-color: #34d399;">
+                                <div class="troubleshoot-title">🔴 조회 성능 저하 및 서버 부하 급증</div>
                                 <div class="troubleshoot-content">
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-problem">Problem</span>
@@ -1443,45 +1471,11 @@
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-cause">Cause</span>
-                                        <span>1:N 관계 엔티티 조회 시 300여 개의 서브 쿼리(N+1 문제)가 발생하여 커넥션 부족 유발</span>
+                                        <span>1:N 관계 엔티티 조회 시 300여 개의 서브 쿼리(N+1 문제)가 발생하여 DB 병목 유발</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-solution">Solution</span>
                                         <span><strong>JPQL Fetch Join</strong> 적용으로 쿼리 최적화. <strong>응답 속도 84% 개선 (0.5s)</strong></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="troubleshoot-item" style="border-left-color: #fbbf24;">
-                                <div class="troubleshoot-title">🔴 AI 예측 데이터의 신뢰도 및 운영 비용 이슈</div>
-                                <div class="troubleshoot-content">
-                                    <div class="troubleshoot-row">
-                                        <span class="troubleshoot-label label-problem">Problem</span>
-                                        <span>GPT 예측 결과의 환각 현상으로 인한 정보 왜곡 및 과도한 API 호출 비용 발생</span>
-                                    </div>
-                                    <div class="troubleshoot-row">
-                                        <span class="troubleshoot-label label-cause">Cause</span>
-                                        <span>파라미터(Temperature) 미세 조정 부족 및 비효율적인 프롬프트 구조</span>
-                                    </div>
-                                    <div class="troubleshoot-row">
-                                        <span class="troubleshoot-label label-solution">Solution</span>
-                                        <span><strong>파라미터 최적화 실험</strong> 및 프롬프트 고도화로 <strong>편차 80% 감소</strong> 및 운영 비용 절감</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="troubleshoot-item" style="border-left-color: #34d399;">
-                                <div class="troubleshoot-title">🔴 낮은 구매 전환율 및 사용자 체류 시간 부족</div>
-                                <div class="troubleshoot-content">
-                                    <div class="troubleshoot-row">
-                                        <span class="troubleshoot-label label-problem">Problem</span>
-                                        <span>단순 최저가 나열만으로는 사용자의 지속적인 방문과 구매 유도가 어려움</span>
-                                    </div>
-                                    <div class="troubleshoot-row">
-                                        <span class="troubleshoot-label label-cause">Cause</span>
-                                        <span>개개인의 취향이 반영되지 않은 일괄적인 정보 제공으로 인한 관심도 저하</span>
-                                    </div>
-                                    <div class="troubleshoot-row">
-                                        <span class="troubleshoot-label label-solution">Solution</span>
-                                        <span><strong>사용자 행동 기반 추천 알고리즘</strong> 도입. <strong>추천 상품 클릭률 23% 향상</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -1491,8 +1485,9 @@
                     <div class="project-section">
                         <h4><i class="fas fa-lightbulb" style="margin-right: 8px;"></i> 기술적 의사결정의 근거</h4>
                         <ul class="project-tech-choice-list">
-                            <li><strong>Spring Cloud (MSA):</strong> 서비스별 부하 분산과 독립적 배포를 통해 운영 안정성 확보. 특히 API 호출이 잦은 GPT 서비스의 영향을 최소화하기 위해 도입</li>
-                            <li><strong>Redis:</strong> 실시간 최저가 정보의 빈번한 조회 성능을 높이고, 메인 DB의 부하를 덜어주기 위해 캐싱 레이어 활용</li>
+                            <li><strong>Spring Cloud & Eureka:</strong> 서비스 간 결합도를 낮추고 유연한 확장이 가능한 MSA 구조 채택</li>
+                            <li><strong>Redis (Auth Storage):</strong> 고속 인메모리 DB를 활용하여 JWT Refresh Token 관리 및 로그아웃 보안 강화</li>
+                            <li><strong>Java 21:</strong> 가상 스레드 등 최신 기능을 고려한 미래 지향적 기술 스택 도입</li>
                         </ul>
                     </div>
 
@@ -1502,17 +1497,8 @@
                             <div class="retrospect-card good">
                                 <div class="retrospect-card-title">✅ 성과 및 인사이트</div>
                                 <ul class="retrospect-list" style="color: var(--text-primary);">
-                                    <li><strong>실험과 검증의 중요성:</strong> AI 파라미터를 단순히 기본값으로 쓰지 않고 직접 실험하며 최적값을 찾았던 경험이 가장 보람찼습니다.</li>
-                                    <li><strong>데이터 기반 의사결정:</strong> 추천 알고리즘 설계 시 실제 사용자 행동 데이터를 분석하여 설득력 있는 비즈니스 로직을 구축할 수 있었습니다.</li>
-                                    <li><strong>End-to-End 개발의 가치:</strong> 백엔드와 프론트엔드를 모두 담당하며 서비스의 전체 흐름을 이해하게 되었고, 사용자 중심의 API 설계 능력을 키웠습니다.</li>
-                                    <li><strong>성능 최적화의 가치:</strong> 사소한 쿼리 하나가 전체 시스템 응답 속도에 미치는 영향(84% 개선)을 실측하며 운영의 중요성을 배웠습니다.</li>
-                                </ul>
-                            </div>
-                            <div class="retrospect-card bad">
-                                <div class="retrospect-card-title">⚠️ 아쉬운 점 및 개선 계획</div>
-                                <ul class="retrospect-list" style="color: var(--text-primary);">
-                                    <li><strong>운영 비용 모니터링 부족:</strong> 실제 API 비용이 예산을 초과하는 이슈가 있었습니다. 다음엔 사용량 대시보드를 구축하여 실시간 비용 제어 로직을 포함하겠습니다.</li>
-                                    <li><strong>MSA 서비스 통합 이슈:</strong> 데이터 타입 불일치 에러를 경험하며, API 명세서 사전 정의와 타입 스키마 공유의 필수성을 깨달았습니다.</li>
+                                    <li><strong>운영 관점의 개발:</strong> 보안 취약점 대응과 코드 포맷 자동화를 경험하며, '돌아가는 코드'보다 '안전하고 정돈된 코드'의 가치를 배웠습니다.</li>
+                                    <li><strong>MSA 실무 이해:</strong> 8개의 서비스를 직접 유레카로 연결하며 분산 시스템의 서비스 디스커버리 원리를 깊이 있게 이해했습니다.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1525,12 +1511,12 @@
                 <div class="project-header">
                     <h3 class="project-title">
                         <i class="fas fa-clipboard-check" style="color: #60a5fa; margin-right: 10px;"></i>
-                        Attendance Helper - 업무 프로세스 자동화 시스템
+                        Attendance Helper - 실무 양식 100% 재현 자동화 시스템
                     </h3>
                     <p class="project-meta">2024.06 ~ 2024.07 (1개월) | 개인 프로젝트 | 백엔드</p>
                     <p class="project-description">
-                        유치원 현장의 비효율적인 수기 행정 업무를 <strong>디지털화</strong>하여 운영 효율을 극대화한 프로젝트.
-                        단순 개발을 넘어 실무자의 워크플로우를 분석하여 <strong>업무 시간을 획기적으로 단축</strong>했습니다.
+                        단순 엑셀 생성을 넘어 **셀 병합, 세로 텍스트, 결제란** 등 복잡한 실무 양식을 코드로 완벽히 구현한 시스템.
+                        실무자의 수기 업무 시간을 **획기적으로 단축**했습니다.
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/heeezni/python-attendance-manager" target="_blank" class="project-link">🔗 GitHub</a>
@@ -1539,30 +1525,22 @@
 
                 <div class="project-body">
                     <div class="project-section">
-                        <h4>비즈니스 가치 및 운영 효율화</h4>
-                        <ul class="improvements">
-                            <li><strong>행정 업무 자동화:</strong> 매달 30분 이상 소요되던 수기 출석부 작성을 <strong>1초 내 자동 생성</strong>으로 개선</li>
-                            <li><strong>데이터 무결성 확보:</strong> 수기 작성 시 발생하던 계산 착오 및 오기입 휴먼 에러를 시스템 검증 로직으로 원천 차단</li>
-                        </ul>
-                    </div>
-
-                    <div class="project-section">
                         <h4><i class="fas fa-tools" style="margin-right: 8px;"></i> Problem - Cause - Solution</h4>
                         <div class="troubleshoot-container">
                             <div class="troubleshoot-item">
-                                <div class="troubleshoot-title">🔴 Excel 출력 시 복잡한 서식 깨짐 현상</div>
+                                <div class="troubleshoot-title">🔴 복잡한 행정 서식의 자동화 한계</div>
                                 <div class="troubleshoot-content">
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-problem">Problem</span>
-                                        <span>Excel 출력 시 테두리, 배경색 등 필수 행정 서식이 깨져 실무 활용 불가</span>
+                                        <span>단순 데이터 출력만으로는 현장 표준 출석부 양식을 대체할 수 없음</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-cause">Cause</span>
-                                        <span>기본 라이브러리의 서식 복사 로직 미비로 인해 스타일 속성 손실</span>
+                                        <span>셀 병합, 동적 색상 지정, 수직 정렬 등 정밀한 엑셀 제어 로직 부재</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-solution">Solution</span>
-                                        <span><strong>NamedStyle 객체</strong> 기반 스타일 가이드 정의로 <strong>현장 표준 양식 100% 재현</strong></span>
+                                        <span><strong>openpyxl의 스타일/병합 API</strong>를 정밀 제어하여 <strong>현장 양식 100% 디지털화</strong> 성공</span>
                                     </div>
                                 </div>
                             </div>
@@ -1575,8 +1553,8 @@
                             <div class="retrospect-card good">
                                 <div class="retrospect-card-title">✅ 성과 및 인사이트</div>
                                 <ul class="retrospect-list" style="color: var(--text-primary);">
-                                    <li><strong>실무 경험의 가치:</strong> 유치원 교사 경험을 바탕으로 실제 사용자 니즈를 분석하여, 수작업 30분을 1초로 단축하는 실질적인 비즈니스 가치를 창출했습니다.</li>
-                                    <li><strong>프로세스 자동화 이해:</strong> Python과 openpyxl을 활용하며 반복적인 행정 업무를 시스템화하는 즐거움과 효율성을 깊이 체감했습니다.</li>
+                                    <li><strong>사용자 중심 디테일:</strong> 실무자가 진짜 필요로 하는 '결제란'과 '공휴일 세로 쓰기' 기능을 구현하며 사용자 경험의 본질을 배웠습니다.</li>
+                                    <li><strong>업무 효율화의 보람:</strong> 기술이 사람의 리소스를 어떻게 절약해 주는지(30분→1초) 수치로 확인하며 개발의 동력을 얻었습니다.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1589,12 +1567,12 @@
                 <div class="project-header">
                     <h3 class="project-title">
                         <i class="fas fa-tshirt" style="color: #60a5fa; margin-right: 10px;"></i>
-                        오늘 뭐 입지? - 사용자 맞춤형 옷장 관리 시스템
+                        오늘 뭐 입지? - IndexedDB 기반 로컬 데이터 운영 앱
                     </h3>
                     <p class="project-meta">2025.05 ~ 2025.06 (1개월) | 개인 프로젝트 | 프론트엔드</p>
                     <p class="project-description">
-                        사용자 개인 데이터를 안전하게 관리하면서도 실시간 외부 정보(날씨)를 결합한 코디 추천 플랫폼.
-                        <strong>클라이언트 사이드 데이터 관리</strong>의 효율성을 실험한 프로젝트입니다.
+                        서버 없이 브라우저 내 **IndexedDB(Object Store)**를 설계하여 대용량 옷장 데이터를 관리하는 플랫폼.
+                        바닐라 JS를 이용해 비동기 데이터 흐름을 정밀하게 제어했습니다.
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/heeezni/Closet_Project" target="_blank" class="project-link">🔗 GitHub</a>
@@ -1606,19 +1584,19 @@
                         <h4><i class="fas fa-tools" style="margin-right: 8px;"></i> Problem - Cause - Solution</h4>
                         <div class="troubleshoot-container">
                             <div class="troubleshoot-item">
-                                <div class="troubleshoot-title">🔴 비동기 데이터 로딩 시 UI 정합성 이슈</div>
+                                <div class="troubleshoot-title">🔴 브라우저 내 데이터 저장소 설계 이슈</div>
                                 <div class="troubleshoot-content">
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-problem">Problem</span>
-                                        <span>IndexedDB 조회 중 렌더링이 먼저 발생하여 데이터가 보이지 않는 현상</span>
+                                        <span>단순 LocalStorage 사용 시 데이터 용량 제한 및 구조화된 검색 불가능</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-cause">Cause</span>
-                                        <span>비동기 콜백 체인 내 렌더링 시점 제어 부족</span>
+                                        <span>이미지 위주의 대용량 데이터 처리에 적합하지 않은 저장소 선택</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-solution">Solution</span>
-                                        <span><strong>Promise 기반 데이터 접근 레이어</strong> 구축으로 <strong>렌더링 정합성 100% 확보</strong></span>
+                                        <span><strong>IndexedDB ObjectStore</strong> 설계 및 트랜잭션 처리를 통해 <strong>대용량 로컬 DB</strong> 구축</span>
                                     </div>
                                 </div>
                             </div>
@@ -1631,14 +1609,8 @@
                             <div class="retrospect-card good">
                                 <div class="retrospect-card-title">✅ 성과 및 인사이트</div>
                                 <ul class="retrospect-list" style="color: var(--text-primary);">
-                                    <li><strong>기초 역량 강화:</strong> 프레임워크 없이 Vanilla JS로 SPA를 구현하며 DOM 조작, 이벤트 핸들링, 비동기 처리의 핵심 원리를 완벽히 이해했습니다.</li>
-                                    <li><strong>클라이언트 DB 설계:</strong> IndexedDB를 직접 다루며 트랜잭션 개념과 브라우저 기반 데이터 관리의 장단점을 파악했습니다.</li>
-                                </ul>
-                            </div>
-                            <div class="retrospect-card bad">
-                                <div class="retrospect-card-title">⚠️ 아쉬운 점 및 개선 계획</div>
-                                <ul class="retrospect-list" style="color: var(--text-primary);">
-                                    <li><strong>확장성 부족:</strong> 현재는 단일 기기 데이터만 유지됩니다. 차후 Spring Boot 서버를 구축하여 다중 기기 동기화 기능을 추가할 계획입니다.</li>
+                                    <li><strong>브라우저 기술의 재발견:</strong> 서버 없이도 안정적인 데이터 운영이 가능하도록 만드는 클라이언트 측 DB 활용 능력을 키웠습니다.</li>
+                                    <li><strong>비동기 제어 숙련:</strong> IndexedDB의 비동기 콜백 구조를 다루며 자바스크립트의 실행 컨텍스트와 이벤트 루프를 깊이 이해했습니다.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1651,12 +1623,12 @@
                 <div class="project-header">
                     <h3 class="project-title">
                         <i class="fas fa-spray-can" style="color: #60a5fa; margin-right: 10px;"></i>
-                        RÊVE - 이커머스 통합 운영 시스템
+                        RÊVE - 품질 중심의 이커머스 백엔드 시스템
                     </h3>
                     <p class="project-meta">2025.07 ~ 2025.08 (2개월) | 팀 프로젝트 | 백엔드</p>
                     <p class="project-description">
-                        복잡한 <strong>비즈니스 로직(주문-결제-CS)</strong>을 유기적으로 연결한 통합 쇼핑몰 플랫폼. 
-                        관리자 운영 효율을 높이기 위한 대시보드와 Q&A 워크플로우 설계에 집중했습니다.
+                        **Spring Boot 3.5 & Java 21** 기반의 향수 쇼핑몰. 
+                        **Spotless 포맷팅** 관리와 **Spring Security**를 통한 안전한 회원 시스템 구축에 집중했습니다.
                     </p>
                     <div class="project-links">
                         <a href="https://github.com/heeezni/reve" target="_blank" class="project-link">🔗 GitHub</a>
@@ -1665,30 +1637,22 @@
 
                 <div class="project-body">
                     <div class="project-section">
-                        <h4>도메인 이해 및 운영 관점의 개선</h4>
-                        <ul class="improvements">
-                            <li><strong>CS 운영 프로세스 개선:</strong> Q&A 상태값(대기/완료)을 세분화하여 <strong>고객 응답 지연 시간 감소</strong></li>
-                            <li><strong>통계 대시보드 구현:</strong> 관리자가 비즈니스 현황을 한눈에 파악할 수 있도록 판매 데이터 그룹화</li>
-                        </ul>
-                    </div>
-
-                    <div class="project-section">
                         <h4><i class="fas fa-tools" style="margin-right: 8px;"></i> Problem - Cause - Solution</h4>
                         <div class="troubleshoot-container">
                             <div class="troubleshoot-item">
-                                <div class="troubleshoot-title">🔴 대규모 데이터 페이징 성능 저하</div>
+                                <div class="troubleshoot-title">🔴 대규모 상품 데이터의 효율적 페이징</div>
                                 <div class="troubleshoot-content">
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-problem">Problem</span>
-                                        <span>상품 수가 증가함에 따라 목록 조회 API의 지연 시간 급증</span>
+                                        <span>상품 수가 늘어남에 따라 목록 페이지 로딩 속도 저하</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-cause">Cause</span>
-                                        <span>Offset 기반 페이징으로 인한 불필요한 Full Table Scan 발생</span>
+                                        <span>기본 전체 조회 쿼리로 인한 DB 및 네트워크 부하 발생</span>
                                     </div>
                                     <div class="troubleshoot-row">
                                         <span class="troubleshoot-label label-solution">Solution</span>
-                                        <span><strong>Spring Data JPA 페이징 최적화</strong> 및 인덱스 활용 쿼리로 성능 향상</span>
+                                        <span><strong>Spring Data JPA Pageable</strong> 활용 및 인덱스 최적화로 <strong>조회 성능 안정화</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -1701,8 +1665,8 @@
                             <div class="retrospect-card good">
                                 <div class="retrospect-card-title">✅ 성과 및 인사이트</div>
                                 <ul class="retrospect-list" style="color: var(--text-primary);">
-                                    <li><strong>이커머스 도메인 이해:</strong> 제품-주문-결제로 이어지는 복잡한 비즈니스 로직을 구현하며 데이터 정합성을 위한 DB 설계의 중요성을 배웠습니다.</li>
-                                    <li><strong>팀 협업 및 커뮤니케이션:</strong> 백엔드 API와 프론트엔드 템플릿을 분담하며 명확한 역할 분리와 API 명세 공유의 중요성을 체감했습니다.</li>
+                                    <li><strong>협업 표준 확립:</strong> Spotless를 도입하여 팀원 간 코드 스타일 충돌을 원천 차단하고 리뷰 효율을 높이는 경험을 했습니다.</li>
+                                    <li><strong>도메인 로직 정합성:</strong> 쇼핑몰의 복잡한 비즈니스 로직을 구현하며 데이터 무결성을 위한 트랜잭션 관리의 중요성을 배웠습니다.</li>
                                 </ul>
                             </div>
                         </div>
