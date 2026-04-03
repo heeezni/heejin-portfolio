@@ -931,12 +931,16 @@
 
             .project-links {
                 gap: 0.75rem;
-                margin-top: 1rem;
+                margin-top: 1.5rem; /* 간격 확대 */
+                justify-content: center; /* 모바일에서 중앙 정렬 */
             }
 
             .project-link {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.85rem;
+                padding: 0.6rem 1rem; /* 클릭 영역 확대 */
+                font-size: 0.9rem;
+                flex: 1; /* 모바일에서 버튼 너비 균등화 */
+                max-width: 150px;
+                text-align: center;
             }
 
             .project-body {
