@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인희진_포트폴리오_요약본</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --text-main: #1f2937;
+            --text-sub: #4b5563;
+            --border: #e5e7eb;
+            --bg-light: #f9fafb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            line-height: 1.5;
+            color: var(--text-main);
+            padding: 30px;
+            background: #fff;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        /* Header */
+        header { border-bottom: 2.5px solid var(--primary); padding-bottom: 15px; margin-bottom: 25px; }
+        .name { font-size: 26px; font-weight: 800; color: var(--primary); }
+        .title { font-size: 17px; font-weight: 700; margin-top: 5px; color: var(--text-main); }
+        .contact { margin-top: 8px; font-size: 13px; color: var(--text-sub); }
+
+        /* Section */
+        section { margin-bottom: 30px; }
+        h2 { font-size: 18px; border-left: 5px solid var(--primary); padding-left: 12px; margin-bottom: 12px; color: var(--text-main); background: var(--bg-light); padding-top: 4px; padding-bottom: 4px; }
+        
+        .profile-desc { font-size: 14px; margin-bottom: 8px; }
+        
+        /* Achievement Grid */
+        .achievement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px; }
+        .achieve-card { background: var(--bg-light); padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
+        .achieve-title { font-weight: 700; font-size: 13px; color: var(--primary); display: block; }
+        .achieve-val { font-size: 17px; font-weight: 800; margin: 3px 0; }
+        .achieve-desc { font-size: 11.5px; color: var(--text-sub); }
+
+        /* Project */
+        .project-item { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed var(--border); }
+        .project-item:last-child { border-bottom: none; }
+        .pj-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .pj-title { font-size: 16px; font-weight: 700; color: var(--text-main); }
+        .pj-date { font-size: 12px; color: var(--text-sub); }
+        .pj-desc { font-size: 13.5px; margin: 6px 0; color: var(--primary); font-weight: 700; }
+        
+        /* Troubleshooting Table */
+        .ts-box { margin-top: 10px; font-size: 13px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+        .ts-row { display: flex; border-bottom: 1px solid var(--border); }
+        .ts-row:last-child { border-bottom: none; }
+        .ts-label { width: 75px; background: var(--bg-light); padding: 6px; font-weight: 700; color: var(--text-sub); text-align: center; border-right: 1px solid var(--border); flex-shrink: 0; }
+        .ts-content { padding: 6px 12px; flex-grow: 1; }
+        .ts-content strong { color: var(--primary); }
+
+        /* Skills & Certs */
+        .list-inline { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
+        .badge { background: var(--bg-light); border: 1px solid var(--border); padding: 3px 10px; border-radius: 4px; font-size: 12.5px; font-weight: 600; }
+
+        @media print {
+            body { padding: 15px; }
+            .ts-box { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="name">인희진 (Hee-Jin In)</div>
+            <div class="title">"실제 코드로 증명하는 보안 및 품질 중심의 IT 운영 전문가"</div>
+            <div class="contact">
+                📮 hjin3456@naver.com | 💻 github.com/heeezni | ✏️ velog.io/@hjin3456
+            </div>
+        </header>
+
+        <section>
+            <h2>핵심 역량 및 정체성</h2>
+            <p class="profile-desc">
+                단순히 '돌아가는 서비스'가 아닌 <strong>'보안이 강화되고 품질이 보장된 시스템'</strong>을 지향합니다. 마이크로서비스 환경에서의 보안 취약점 직접 대응 및 Spotless 코드 품질 자동화 도구 도입을 통해 비즈니스 리스크를 최소화하고 협업 효율을 높이는 데 강점이 있습니다.
+            </p>
+        </section>
+
+        <section>
+            <h2>실무 기반 핵심 성과</h2>
+            <div class="achievement-grid">
+                <div class="achieve-card">
+                    <span class="achieve-title">보안 및 품질 관리</span>
+                    <div class="achieve-val">취약점(CVE) 해결</div>
+                    <p class="achieve-desc">의존성 보안 패치 및 Spotless 자동화 도입</p>
+                </div>
+                <div class="achieve-card">
+                    <span class="achieve-title">데이터 정합성 확보</span>
+                    <div class="achieve-val">오류 데이터 0건</div>
+                    <p class="achieve-desc">외부 API 연동 시 정밀 유효성 검증 로직</p>
+                </div>
+                <div class="achieve-card">
+                    <span class="achieve-title">조회 성능 최적화</span>
+                    <div class="achieve-val">1.2s → 0.15s</div>
+                    <p class="achieve-desc">N+1 문제 해결 및 DB 인덱스 튜닝</p>
+                </div>
+                <div class="achieve-card">
+                    <span class="achieve-title">행정 업무 디지털화</span>
+                    <div class="achieve-val">리소스 99% 절감</div>
+                    <p class="achieve-desc">수기 30분 → 자동화 1초 미만 (Excel)</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>주요 프로젝트</h2>
+            
+            <div class="project-item">
+                <div class="pj-header">
+                    <div class="pj-title">Jupiter - 8개 서비스 기반 MSA 운영 플랫폼</div>
+                    <div class="pj-date">2025.08 ~ 2025.10</div>
+                </div>
+                <div class="pj-desc">Java 21, Spring Boot 3.5, Spring Cloud, Redis (인증 보안 및 분산 데이터 운영)</div>
+                <div class="ts-box">
+                    <div class="ts-row">
+                        <div class="ts-label">Security</div>
+                        <div class="ts-content"><strong>Redis 기반 Blacklist</strong> 구축으로 로그아웃 토큰 무효화 및 분산 환경 보안 리스크 원천 차단</div>
+                    </div>
+                    <div class="ts-row">
+                        <div class="ts-label">Quality</div>
+                        <div class="ts-content">라이브러리 취약점(CVE-2025-48924) 해결 및 Spotless 자동 포맷팅 체계 구축</div>
+                    </div>
+                    <div class="ts-row">
+                        <div class="ts-label">Optim.</div>
+                        <div class="ts-content"><strong>5개 테이블 다중 조인 쿼리 최적화</strong> 및 Redis 활용으로 조회 성능 84% 개선 (0.5s)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="pj-header">
+                    <div class="pj-title">Attendance Helper - 실무 양식 재현 자동화</div>
+                    <div class="pj-date">2024.06 ~ 2024.07</div>
+                </div>
+                <div class="pj-desc">Python Flask, openpyxl (실무자의 행정 리소스 최적화)</div>
+                <div class="ts-box">
+                    <div class="ts-row">
+                        <div class="ts-label">Detail</div>
+                        <div class="ts-content">셀 병합, 세로 텍스트 등 <strong>복잡한 실무 서식을 100% 디지털화</strong>하여 현장 도입 가능성 증명</div>
+                    </div>
+                    <div class="ts-row">
+                        <div class="ts-label">Impact</div>
+                        <div class="ts-content">반복 수기 업무를 자동화 시스템으로 전환하여 <strong>업무 시간 99% 단축</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="pj-header">
+                    <div class="pj-title">RÊVE / Closet Project - 품질 및 데이터 관리</div>
+                    <div class="pj-date">2025.05 ~ 2025.08</div>
+                </div>
+                <div class="pj-desc">Spring Data JPA, IndexedDB (데이터 무결성 및 비동기 처리)</div>
+                <div class="ts-box">
+                    <div class="ts-row">
+                        <div class="ts-label">Backend</div>
+                        <div class="ts-content"><strong>Spring Data JPA Pageable</strong> 최적화 및 Spotless 기반 품질 관리 (RÊVE)</div>
+                    </div>
+                    <div class="ts-row">
+                        <div class="ts-label">Frontend</div>
+                        <div class="ts-content"><strong>IndexedDB ObjectStore</strong> 설계 및 바닐라 JS 비동기 로직 최적화 (Closet)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>기술 스택 및 자격 사항</h2>
+            <div style="margin-bottom: 12px;">
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">Technical Skills</div>
+                <ul class="list-inline">
+                    <li class="badge">Java 21 / Spring Boot 3.5</li>
+                    <li class="badge">MSA / Spring Cloud / Eureka</li>
+                    <li class="badge">MySQL / Oracle / Redis</li>
+                    <li class="badge">Spring Data JPA</li>
+                    <li class="badge">DevOps (Spotless, Git)</li>
+                    <li class="badge">Python / Flask</li>
+                </ul>
+            </div>
+            <div>
+                <div style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">Certifications</div>
+                <ul class="list-inline">
+                    <li class="badge">정보처리기사</li>
+                    <li class="badge">SQLD(SQL개발자)</li>
+                    <li class="badge">ADsP(데이터분석준전문가)</li>
+                    <li class="badge">컴퓨터활용능력 1급</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
